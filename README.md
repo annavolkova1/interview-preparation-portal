@@ -1,20 +1,21 @@
-## First Web Application Project 
-Planned duration: ~ 3 weeks  
-General project requirements:  
-• Layered and MVC architecture patterns  
-• Data should be stored in DB  
-• Follow all naming conventions and keep project well-structured  
-• Avoid structured programming style  
-• Try to use different GoF Patterns (optional)  
-• Unit tests  
-• VCS (Git recommended)  
-• Agile  
-• Use Flyway for DB migration control  
-## Functional requirements:
-**The application provides an opportunity for students to register for a pre-interview:**  
-• Choosing a date by interviewers on the calendar  
-• Interaction with TEAMS api  
-• You should use some older technologies.  
-The reason is that usually using of only new technologies doesn’t give deep understating of what are you exactly doing.
-For example, you should NOT use Spring ‘magic tools’ like Boot, Data etc., which configures almost everything for you.
-Technologies:JDBC, Servlets/JSP, Tomcat, Java 1.7, Gradle
+## Первый проект
+Приложение даёт возможность студентам тренинг-центра с направлений Java и JavaScript записаться на пре-интервью.  
+**Пре-интервью** - это предварительное собеседование перед итоговым интервью после окончания лаборатории Epam.
+
+### Необходимо было использовать следующие технологии:
+* JDBC
+* Servlets/JSP 
+* Tomcat 
+* Java 1.7 
+* Gradle
+* Flyway
+* Thymeleaf
+
+### Общие рекомендации по выполнению проекта:
+* Использовать паттерны MVC и многоуровневую архитектуру
+* Данные должны храниться в БД
+* Соблюдать все соглашения об именах и сохранять проект хорошо структурированным
+* Избегать структурированного стиля программирования
+* Использовать Git
+* Agile
+* Использовать Flyway для управления миграцией БД
