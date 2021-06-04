@@ -1,0 +1,119 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css" rel="stylesheet">
+  <link href="./resources/schedule.css" rel="stylesheet" type="text/css">
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    var EVENTS = [[${events}]];
+    console.warn(EVENTS)
+    /*]]>*/
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js"></script>
+  <script src="./resources/schedule.js"></script>
+</head>
+<body>
+
+<div class="p-5">
+  <div>
+    <h2 class="mb-4">Interview preparation</h2>
+  </div>
+
+  <div style="display: flex; width: 100%; justify-content: center;">
+    <div style="padding-bottom: 20px;">
+      <button onclick="jQuery('#modal-view-event-add').modal();" class="btn btn-primary"
+              data-dismiss="modal-view-event-add">Add timeslot
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body p-0">
+      <div id="calendar"></div>
+    </div>
+  </div>
+</div>
+
+<form action="http://localhost:8080/interview_preparation_portal_0_0_1_SNAPSHOT_war/schedule" method="post">
+
+  <div id="modal-view-event" class="modal modal-top fade calendar-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
+          <div class="event-body"></div>
+        </div>
+        <div class="modal-footer">
+
+          <button id="addInterviewButton" onclick="jQuery('#modal-interview-view-event-add').modal();"
+                  class="btn btn-primary"
+                  data-dismiss="modal">Add Interview
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="delete-event">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form action="http://localhost:8080/interview_preparation_portal_0_0_1_SNAPSHOT_war/interview" method="post">
+
+  <div id="modal-interview-view-event-add" class="modal modal-top fade calendar-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
+          <div class="event-interview"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="add-interview">Add Interview</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form action="http://localhost:8080/interview_preparation_portal_0_0_1_SNAPSHOT_war/schedule" method="post">
+  <div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="add-event">
+          <div class="modal-body">
+            <h4>Add timeslot</h4>
+            <div class="form-group">
+              <label>Start Time</label>
+              <input type='datetime-local' class="form-control" name="startTime">
+            </div>
+            <div class="form-group">
+              <label>End Time</label>
+              <input type='datetime-local' class="form-control" name="endTime">
+            </div>
+            <div class="form-group">
+              <label>Additional Comment:</label>
+              <textarea class="form-control" name="desc"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">OK</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="card">
+      <h4 class="card-header">Login</h4>
+      <div class="card-body">
+        <form action="http://localhost:8080/interview_preparation_portal_0_0_1_SNAPSHOT_war/login" method="POST">
+          <input type="hidden" class="hide" id="csrf_token" name="csrf_token"
+                 value="C8nPqbqTxzcML7Hw0jLRu41ry5b9a10a0e2bc2">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Email</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="email" required="">
+                </div>
+                <div class="help-block with-errors text-danger"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Password</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="password" name="password" class="form-control" required="">
+                </div>
+                <div class="help-block with-errors text-danger"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checkbox checkbox-primary">
+              <input id="checkbox_remember" type="checkbox" name="remember">
+              <label for="checkbox_remember"> Remember me</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="hidden" name="redirect" value="">
+              <input type="submit" class="btn btn-primary btn-lg btn-block" value="Login" name="submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

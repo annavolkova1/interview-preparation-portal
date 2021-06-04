@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id "org.flywaydb.flyway" version "7.5.0"
+    id 'war'
+}
+
+group = 'com.epam.firstProject'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:5.1.49'
+    implementation 'log4j:log4j:1.2.17'
+    implementation 'commons-logging:commons-logging:1.2'
+    implementation 'javax.servlet:javax.servlet-api:3.0.1'
+    implementation 'org.thymeleaf:thymeleaf:3.0.0.ALPHA03'
+}
+
+def property = new Properties()
+file("src/main/resources/application.properties").withInputStream {property.load(it)}
+
+flyway {
+    url = property.getProperty("DB_URL")
+    user = property.getProperty("USER")
+    password = property.getProperty("PASS")
+}
