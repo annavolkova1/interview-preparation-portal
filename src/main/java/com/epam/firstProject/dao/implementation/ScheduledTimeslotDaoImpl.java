@@ -60,8 +60,6 @@ public class ScheduledTimeslotDaoImpl implements ScheduledTimeslotDao {
         PreparedStatement preparedStatement = connection.prepareStatement(SELECT_OVER_THE_PERIOD)) {
       preparedStatement.setTimestamp(1, start);
       preparedStatement.setTimestamp(2, end);
-      System.out.println("getScheduledTimeslotsOverThePeriod start" + start);
-      System.out.println("getScheduledTimeslotsOverThePeriod end" + end);
       try (ResultSet resultSet = preparedStatement.executeQuery()) {
         while (resultSet.next()) {
           getResultSet(scheduledTimeslots, resultSet);

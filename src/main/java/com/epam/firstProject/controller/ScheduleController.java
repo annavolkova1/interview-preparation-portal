@@ -81,7 +81,6 @@ public class ScheduleController extends ThymeleafServlet {
       String endTime = request.getParameter("endTime");
       String desc = request.getParameter("desc");
       User skillUser = (User) session.getAttribute("user");
-      System.out.println("doPost " + skillUser);
       Long skillId = skillUser.getUserSkills().get(0).getId();
 
       Long interviewerId = skillUser.getId();

@@ -52,12 +52,9 @@ public class LogInController extends ThymeleafServlet {
       }
       HttpSession session = request.getSession();
       session.setAttribute("user", userForSession);
-      System.out.println("suc if");
       getTemplateEngine().process("loginsuccess", webContext, response.getWriter());
     }
     else {
-      System.out.println("suc else");
-
       getTemplateEngine().process("loginerror", webContext, response.getWriter());
     }
   }

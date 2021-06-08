@@ -19,7 +19,7 @@ public class ConnectionProvider {
 
   private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
   private static final String PROPERTIES_PATH =
-      "C:\\workspace\\epam\\interview-preparation-portal\\src\\main\\resources\\application.properties";
+      "C:\\workspace\\interview-preparation-portal\\src\\main\\resources\\application.properties";
 
   private ConnectionProvider() {
 
